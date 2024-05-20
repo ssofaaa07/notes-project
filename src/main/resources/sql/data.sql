@@ -1,0 +1,1 @@
+insert into notes(note_date, note_text) values ('2024-05-20', 'Ого! Это что? Моя первая заметка!?')

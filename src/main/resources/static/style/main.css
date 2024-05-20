@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;700;900&display=swap');
+
+.form-input-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.form-input {
+    height: fit-content;
+    margin: auto;
+    width: 500px;
+    padding: 10px 10px;
+    vertical-align: middle;
+    border: 1px solid #c0c0c0;
+    border-radius: 20px;
+
+}
+
+.form-input-text {
+    margin: 15px 15px;
+    height: fit-content;
+    weight: fit-content;
+    font-family: 'Inter';
+    font-weight: 300px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 10px;
+    font-size: 16px;
+    background-color: #CCCCFF;
+    border: 1px solid #CCCCFF;
+    border-radius: 30px;
+    color: black;
+    cursor: pointer;
+    float: left;
+    margin: 5px 5px;
+    width: fit-content;
+}
+
+.btn:not(:last-child) {
+    border-right: none;
+}
+
+.btn:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn:hover {
+    background-color: #9999FF;
+}
+
+.table-box {
+    margin-top: 30px;
+    border-radius: 30px;
+}
+
+.table {
+	margin-bottom: 20px;
+    border: 1px solid #c0c0c0;
+    height: fit-content;
+    margin: auto;
+    width: 60%;
+    padding: 10px 10px;
+    vertical-align: middle;
+    border: 1px solid #c0c0c0;
+    border-radius: 30px;
+}
+
+.table th {
+    font-family: 'Inter';
+    font-size: 16px;
+	font-weight: bold;
+	padding: 5px;
+	background: #DEDEDE;
+}
+.table td {
+    font-family: 'Inter';
+    font-size: 16px;
+	padding: 5px;
+}
+
+textarea {
+    background-color: #fff;
+    border: 1px solid #CCCCFF;
+    border-radius: 3px;
+    color: #474e57;
+    font-size: 16px;
+    padding: 10px;
+    height: 200px;
+    width: 455px;
+    margin: 10px 10px;
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
