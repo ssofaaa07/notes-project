@@ -6,11 +6,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-
+<div class="title-box">
+    <p class="title-text" th:text="${title}"></p>
+</div>
 <div class="form-input-box">
-    <form class="form-input" th:method="PATCH" th:action="@{/{id}(id=${note.getNoteId()})}" th:object="${note}">
+    <form class="form-input" th:method="PATCH" th:action="@{/{id}(id=${note.getId()})}" th:object="${note}" enctype="multipart/form-data">
         <label class="form-input-text" for="text">Содержание заметки: </label>
         <textarea type="text" th:field="*{noteText}" id="text"></textarea>
+        <label class="form-input-text" for="text">Прикрепить изображение: </label>
+        <input type="file" name="file" class="file">
+        <div th:each="image : ${images}" class="image-box"> <img th:src="@{/image/{id}(id=${image.getId()})}" th:if="${not #lists.isEmpty(image)}" height="100px"></div>
         <br/>
         <div class="btn-group">
             <input class="btn" type="reset" value="Очистить введённое">

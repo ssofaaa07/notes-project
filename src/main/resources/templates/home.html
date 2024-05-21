@@ -6,27 +6,37 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
+<div class="title-box">
+    <p class="title-text" th:text="${title}"></p>
+</div>
 <div class="notes">
     <div class="form-input-box">
-        <form class="form-input" th:method="POST" th:action="@{/}" th:object="${note}">
+        <form class="form-input" th:method="POST" th:action="@{/create}" th:object="${note}" enctype="multipart/form-data">
             <label class="form-input-text" for="text">Содержание заметки: </label>
             <textarea type="text" th:field="*{noteText}" id="text"></textarea>
+            <br/>
+            <label class="form-input-text" for="text">Прикрепить изображение: </label>
+            <input type="file" name="file" class="file">
             <br/>
             <div class="btn-group">
                 <input class="btn" type="reset" value="Очистить введённое">
                 <button class="btn">Сохранить заметку</button>
             </div>
+
         </form>
     </div>
 
-    <div class="table-box" th:switch="${notes}">
+    <p class="title-text-normal" th:text="'Количество заметок - ' + ${notesCount}"></p>
+
+    <div th:switch="${notes}">
         <h2 th:case="null">В базе данных нет записей</h2>
         <div th:case="*">
             <table class="table">
                 <thead>
                 <tr>
-                    <th>Дата</th>
+                    <th>Дата создания</th>
                     <th>Содержание заметки</th>
+                    <th>Картинка</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -34,11 +44,15 @@
                 <tr th:each="note : ${notes}">
                     <td th:text="${note.noteDate}"></td>
                     <td th:text="${note.noteText}"></td>
+                    <div th:switch="${not #lists.isEmpty(image)}">
+                        <td th:case="false" th:text="${note.getImages().size()}"></td>
+                        <td th:case="true"></td>
+                    </div>
                     <td><div class="btn-group">
-                        <form th:action="@{/{id}(id=${note.getNoteId()})}">
+                        <form th:action="@{/{id}(id=${note.getId()})}">
                             <button class="btn">Редактировать</button>
                         </form>
-                        <form th:method="DELETE" th:action="@{/{id}(id=${note.getNoteId()})}">
+                        <form th:method="DELETE" th:action="@{/{id}(id=${note.getId()})}">
                             <button class="btn">Удалить</button>
                         </form>
                     </div>
